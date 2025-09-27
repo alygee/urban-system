@@ -6,6 +6,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
+import { Provider as ChakraProvider } from "./components/ui/provider";
 
 import type { Route } from "./+types/root";
 
@@ -41,7 +42,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <ChakraProvider>
+      <Outlet />
+    </ChakraProvider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
